@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reggie Express AI Academy — Empowering SA Educators with AI</title>
+    <meta name="description" content="South Africa's first AI-powered learning academy for teachers, lecturers, and students. ETDP SETA-aligned certifications for Fundisa AI, MatricMate AI, SuperviseAI & Frictionless Learner.">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VGPHXM6WSD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VGPHXM6WSD');
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0A2E5A;
+            --gold: #D4AF37;
+            --teal: #008B8B;
+            --white: #FFFFFF;
+            --light: #F5F7FA;
+            --dark: #1E293B;
+            --gray: #64748B;
+            --navy-light: #1A3E6A;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--white);
+        }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; font-weight: 800; }
+
+        /* Navigation */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(10, 46, 90, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 0 2rem;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            height: 80px;
+        }
+        .nav-logo {
+            display: flex; align-items: center; gap: 12px;
+            text-decoration: none;
+        }
+        .nav-logo-icon {
+            width: 45px; height: 45px;
+            background: linear-gradient(135deg, var(--gold), #E5C44A);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem;
+        }
+        .nav-logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800; font-size: 1.4rem;
+            color: var(--white);
+        }
+        .nav-logo-text span { color: var(--gold); }
+        .nav-links {
+            display: flex; list-style: none; gap: 2rem; align-items: center;
+        }
+        .nav-links a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none; font-weight: 500; font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-cta {
+            background: var(--gold); color: var(--navy) !important;
+            padding: 10px 24px; border-radius: 50px;
+            font-weight: 700 !important; transition: all 0.3s !important;
+        }
+        .nav-cta:hover {
+            background: #E5C44A; transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+        .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 5px; }
+        .mobile-toggle span {
+            width: 25px; height: 2px; background: var(--white); transition: all 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, #0D3D73 100%);
+            display: flex; align-items: center;
+            position: relative; overflow: hidden;
+            padding-top: 80px;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: -30%; right: -10%;
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(0, 139, 139, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-container {
+            max-width: 1200px; margin: 0 auto; padding: 4rem 2rem;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+            align-items: center; position: relative; z-index: 1;
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 8px 20px; border-radius: 50px;
+            color: var(--gold); font-size: 0.85rem; font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 {
+            font-size: 2.8rem; font-weight: 900; color: var(--white);
+            line-height: 1.15; margin-bottom: 1.5rem;
+        }
+        .hero h1 .highlight {
+            color: var(--gold);
+            position: relative;
+        }
+        .hero h1 .highlight::after {
+            content: ''; position: absolute; bottom: 2px; left: 0;
+            width: 100%; height: 4px; background: var(--gold);
+            opacity: 0.3; border-radius: 2px;
+        }
+        .hero p {
+            font-size: 1.15rem; color: rgba(255,255,255,0.85);
+            margin-bottom: 2rem; max-width: 520px; line-height: 1.8;
+        }
+        .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn-primary {
+            background: var(--gold); color: var(--navy);
+            padding: 16px 36px; border-radius: 50px;
+            font-weight: 700; font-size: 1rem; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 8px;
+            transition: all 0.3s; border: none; cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .btn-primary:hover {
+            background: #E5C44A; transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+        .btn-secondary {
+            background: transparent; color: var(--white);
+            padding: 16px 36px; border-radius: 50px;
+            font-weight: 600; font-size: 1rem; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 8px;
+            transition: all 0.3s; border: 2px solid rgba(255,255,255,0.3);
+            cursor: pointer; font-family: 'Montserrat', sans-serif;
+        }
+        .btn-secondary:hover {
+            border-color: var(--white); background: rgba(255,255,255,0.1);
+        }
+        .hero-stats {
+            display: flex; gap: 2rem; margin-top: 3rem;
+            padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);
+            flex-wrap: wrap;
+        }
+        .stat-item { text-align: left; }
+        .stat-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem; font-weight: 800; color: var(--gold);
+        }
+        .stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+        
+        .hero-visual {
+            position: relative;
+        }
+        .academy-mockup {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+        }
+        .mockup-header {
+            display: flex; align-items: center; gap: 8px; margin-bottom: 1rem;
+            padding-bottom: 1rem; border-bottom: 1px solid var(--light);
+        }
+        .mockup-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .mockup-dot.red { background: #EF4444; }
+        .mockup-dot.yellow { background: #F59E0B; }
+        .mockup-dot.green { background: #10B981; }
+        .mockup-title { font-weight: 700; color: var(--navy); font-size: 0.9rem; }
+        .mockup-body { display: flex; flex-direction: column; gap: 1rem; }
+        .course-card {
+            display: flex; align-items: center; gap: 1rem;
+            padding: 1rem; border-radius: 12px;
+            background: var(--light);
+            border-left: 4px solid var(--gold);
+        }
+        .course-icon {
+            width: 40px; height: 40px; border-radius: 10px;
+            background: linear-gradient(135deg, var(--navy), var(--teal));
+            display: flex; align-items: center; justify-content: center;
+            color: var(--white); font-weight: 700; font-size: 1rem;
+        }
+        .course-info { flex: 1; }
+        .course-name { font-weight: 600; color: var(--dark); font-size: 0.9rem; }
+        .course-meta { font-size: 0.8rem; color: var(--gray); }
+        .course-badge {
+            padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 600;
+        }
+        .badge-cpd { background: rgba(16, 185, 129, 0.15); color: #059669; }
+        .badge-new { background: rgba(245, 158, 11, 0.15); color: #D97706; }
+
+        /* Ecosystem Section */
+        .ecosystem { padding: 6rem 2rem; background: var(--white); }
+        .section-container { max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-tag {
+            display: inline-block; background: rgba(10, 46, 90, 0.08);
+            color: var(--navy); padding: 6px 20px; border-radius: 50px;
+            font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .section-header h2 {
+            font-size: 2.3rem; font-weight: 800; color: var(--navy);
+            margin-bottom: 1rem;
+        }
+        .section-header p { font-size: 1.1rem; color: var(--gray); max-width: 600px; margin: 0 auto; }
+        
+        .platform-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+        }
+        .platform-card {
+            background: var(--light);
+            border-radius: 20px; padding: 2rem;
+            text-align: center; transition: all 0.3s;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+        .platform-card:hover {
+            transform: translateY(-5px); border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .platform-icon {
+            width: 60px; height: 60px; margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+            border-radius: 16px; display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem;
+        }
+        .platform-card h3 {
+            font-size: 1rem; font-weight: 700; color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+        .platform-card p { font-size: 0.85rem; color: var(--gray); line-height: 1.6; }
+        .platform-link {
+            display: inline-block; margin-top: 1rem; font-size: 0.85rem;
+            color: var(--teal); font-weight: 600; text-decoration: none;
+        }
+
+        /* Certification Pathways */
+        .pathways { padding: 6rem 2rem; background: var(--light); }
+        .pathway-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+        }
+        .pathway-card {
+            background: var(--white);
+            border-radius: 20px; padding: 2rem;
+            border: 2px solid var(--light);
+            transition: all 0.3s;
+        }
+        .pathway-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+        .pathway-card h3 {
+            font-size: 1.2rem; font-weight: 700; color: var(--navy);
+            margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;
+        }
+        .pathway-card ul {
+            list-style: none; margin-bottom: 1.5rem;
+        }
+        .pathway-card li {
+            padding: 0.5rem 0; font-size: 0.9rem; color: var(--gray);
+            display: flex; align-items: flex-start; gap: 8px;
+        }
+        .pathway-card li::before {
+            content: '✓'; color: var(--teal); font-weight: 700;
+        }
+        .pathway-card .duration {
+            display: inline-block; padding: 4px 12px;
+            background: rgba(0, 139, 139, 0.1); color: var(--teal);
+            border-radius: 20px; font-size: 0.8rem; font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* SETA Accreditation */
+        .seta-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+        }
+        .seta-section .section-tag {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold);
+        }
+        .seta-section h2 { color: var(--white); }
+        .seta-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+            align-items: center;
+        }
+        .seta-visual {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px; padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        .seta-badge {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--gold); color: var(--navy);
+            padding: 1rem 1.5rem; border-radius: 12px;
+            font-weight: 700; margin-bottom: 1.5rem;
+        }
+        .seta-list {
+            list-style: none;
+        }
+        .seta-list li {
+            padding: 0.75rem 0; display: flex; gap: 10px; align-items: flex-start;
+        }
+        .seta-list li::before {
+            content: '✓'; color: var(--gold); font-weight: 700; font-size: 1.2rem;
+        }
+
+        /* Multilingual Training */
+        .multilingual { padding: 6rem 2rem; background: var(--white); }
+        .lang-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+        }
+        .lang-card {
+            background: var(--light);
+            border-radius: 16px; padding: 1.5rem;
+            text-align: center; transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        .lang-card:hover {
+            border-color: var(--teal);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,139,0.08);
+        }
+        .lang-flag { font-size: 2rem; margin-bottom: 0.75rem; }
+        .lang-card h4 {
+            font-size: 0.95rem; font-weight: 700; color: var(--navy);
+            margin-bottom: 0.25rem;
+        }
+        .lang-card p { font-size: 0.8rem; color: var(--gray); }
+
+        /* Pricing */
+        .pricing { padding: 6rem 2rem; background: var(--light); }
+        .pricing-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+            max-width: 1000px; margin: 0 auto;
+        }
+        .pricing-card {
+            background: var(--white);
+            border-radius: 24px; padding: 2.5rem 2rem;
+            text-align: center; border: 2px solid var(--light);
+            transition: all 0.3s; position: relative;
+        }
+        .pricing-card.featured {
+            border-color: var(--gold); transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.15);
+        }
+        .pricing-badge {
+            display: none; position: absolute; top: -14px; left: 50%;
+            transform: translateX(-50%); background: var(--gold);
+            color: var(--navy); padding: 6px 20px; border-radius: 50px;
+            font-size: 0.8rem; font-weight: 700; font-family: 'Montserrat', sans-serif;
+        }
+        .pricing-card.featured .pricing-badge { display: block; }
+        .pricing-name {
+            font-family: 'Montserrat', sans-serif; font-size: 1.2rem;
+            font-weight: 700; color: var(--navy); margin-bottom: 0.5rem;
+        }
+        .pricing-desc { font-size: 0.85rem; color: var(--gray); margin-bottom: 1.5rem; }
+        .pricing-price {
+            font-family: 'Montserrat', sans-serif; font-size: 2.2rem;
+            font-weight: 900; color: var(--navy); margin-bottom: 0.25rem;
+        }
+        .pricing-price span { font-size: 1rem; font-weight: 500; color: var(--gray); }
+        .pricing-period { font-size: 0.85rem; color: var(--gray); margin-bottom: 2rem; }
+        .pricing-features {
+            list-style: none; text-align: left; margin-bottom: 2rem;
+        }
+        .pricing-features li {
+            padding: 0.5rem 0; font-size: 0.9rem; color: #555;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .pricing-features li::before {
+            content: '✓'; color: var(--teal); font-weight: 700;
+        }
+        .pricing-btn {
+            display: block; width: 100%; padding: 14px; border-radius: 12px;
+            font-weight: 700; font-size: 0.95rem; text-decoration: none;
+            transition: all 0.3s; font-family: 'Montserrat', sans-serif;
+            cursor: pointer; border: none;
+        }
+        .pricing-btn.primary { background: var(--navy); color: var(--white); }
+        .pricing-btn.primary:hover { background: var(--navy-light); transform: translateY(-2px); }
+        .pricing-btn.gold { background: var(--gold); color: var(--navy); }
+        .pricing-btn.gold:hover { background: #E5C44A; transform: translateY(-2px); }
+
+        /* Testimonials */
+        .testimonials { padding: 6rem 2rem; background: var(--white); }
+        .testimonial-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+        }
+        .testimonial-card {
+            background: var(--light);
+            border-radius: 20px; padding: 2rem;
+            position: relative;
+        }
+        .testimonial-card::before {
+            content: '"'; font-family: 'Montserrat', sans-serif;
+            font-size: 4rem; font-weight: 900; color: var(--gold);
+            opacity: 0.3; position: absolute; top: 10px; left: 20px;
+        }
+        .testimonial-text {
+            font-size: 0.95rem; color: #555; line-height: 1.7;
+            margin-bottom: 1.5rem; position: relative; z-index: 1;
+        }
+        .testimonial-author {
+            display: flex; align-items: center; gap: 12px;
+        }
+        .testimonial-avatar {
+            width: 48px; height: 48px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--navy), var(--teal));
+            display: flex; align-items: center; justify-content: center;
+            color: var(--white); font-weight: 700; font-size: 1rem;
+        }
+        .testimonial-name { font-weight: 700; color: var(--navy); font-size: 0.95rem; }
+        .testimonial-role { font-size: 0.8rem; color: var(--gray); }
+
+        /* CTA */
+        .cta {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            text-align: center; position: relative; overflow: hidden;
+        }
+        .cta-container { max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
+        .cta h2 {
+            font-size: 2.3rem; font-weight: 900; color: var(--white);
+            margin-bottom: 1rem;
+        }
+        .cta h2 span { color: var(--gold); }
+        .cta p { color: rgba(255,255,255,0.9); font-size: 1.1rem; margin-bottom: 2.5rem; }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .cta-note { margin-top: 1.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+
+        /* Footer */
+        .footer { background: #061D38; padding: 4rem 2rem 2rem; }
+        .footer-container { max-width: 1200px; margin: 0 auto; }
+        .footer-grid {
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        .footer-brand .footer-logo {
+            display: flex; align-items: center; gap: 10px; margin-bottom: 1rem;
+        }
+        .footer-brand .footer-logo-text {
+            font-family: 'Montserrat', sans-serif; font-weight: 800;
+            font-size: 1.2rem; color: var(--white);
+        }
+        .footer-brand .footer-logo-text span { color: var(--gold); }
+        .footer-brand p {
+            color: rgba(255,255,255,0.5); font-size: 0.9rem; line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .footer-social { display: flex; gap: 10px; }
+        .footer-social a {
+            width: 40px; height: 40px; border-radius: 10px;
+            background: rgba(255,255,255,0.08); display: flex;
+            align-items: center; justify-content: center;
+            color: rgba(255,255,255,0.6); text-decoration: none;
+            transition: all 0.3s; font-size: 1.1rem;
+        }
+        .footer-social a:hover { background: var(--gold); color: var(--navy); }
+        .footer-column h4 {
+            color: var(--white); font-family: 'Montserrat', sans-serif;
+            font-weight: 700; font-size: 1rem; margin-bottom: 1.5rem;
+        }
+        .footer-column ul { list-style: none; }
+        .footer-column ul li { margin-bottom: 0.75rem; }
+        .footer-column ul a {
+            color: rgba(255,255,255,0.5); text-decoration: none;
+            font-size: 0.9rem; transition: color 0.3s;
+        }
+        .footer-column ul a:hover { color: var(--gold); }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08); padding-top: 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 1rem;
+        }
+        .footer-bottom p { color: rgba(255,255,255,0.4); font-size: 0.85rem; }
+        .footer-bottom a {
+            color: rgba(255,255,255,0.4); text-decoration: none;
+            font-size: 0.85rem;
+        }
+        .footer-bottom a:hover { color: var(--gold); }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            opacity: 0; transform: translateY(20px); transition: all 0.6s ease;
+        }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container { grid-template-columns: 1fr; text-align: center; }
+            .hero p { margin: 0 auto 2rem; }
+            .hero-buttons { justify-content: center; }
+            .hero-stats { justify-content: center; }
+            .platform-grid { grid-template-columns: repeat(2, 1fr); }
+            .pathway-grid { grid-template-columns: 1fr; }
+            .seta-grid { grid-template-columns: 1fr; }
+            .lang-grid { grid-template-columns: repeat(2, 1fr); }
+            .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
+            .pricing-card.featured { transform: none; }
+            .testimonial-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; position: absolute; top: 80px; left: 0; right: 0;
+                background: var(--navy); flex-direction: column;
+                padding: 2rem; gap: 1.5rem;
+            }
+            .nav-links.active { display: flex; }
+            .mobile-toggle { display: flex; }
+            .hero h1 { font-size: 2rem; }
+            .section-header h2 { font-size: 1.6rem; }
+            .platform-grid { grid-template-columns: 1fr; }
+            .lang-grid { grid-template-columns: 1fr; }
+            .cta h2 { font-size: 1.6rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <div class="nav-logo-icon">🎓</div>
+                <span class="nav-logo-text">Reggie Express <span>AI Academy</span></span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#ecosystem">Platforms</a></li>
+                <li><a href="#pathways">Certifications</a></li>
+                <li><a href="#seta">ETDP SETA</a></li>
+                <li><a href="#multilingual">Languages</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact" class="nav-cta">Enrol Now</a></li>
+            </ul>
+            <div class="mobile-toggle" id="mobileToggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    🇿🇦 South Africa's First AI Education Academy
+                </div>
+                <h1>Master AI for Teaching &<br><span class="highlight">Learning</span></h1>
+                <p>ETDP SETA-aligned certifications for Fundisa AI, MatricMate AI, SuperviseAI & Frictionless Learner. Train educators, empower students, transform SA education.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">Enrol in Free Intro Course →</a>
+                    <a href="#pathways" class="btn-secondary">▶ View Certifications</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Platform Certifications</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">11</div>
+                        <div class="stat-label">SA Languages Supported</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">CPD</div>
+                        <div class="stat-label">Points Aligned</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="academy-mockup">
+                    <div class="mockup-header">
+                        <div class="mockup-dot red"></div>
+                        <div class="mockup-dot yellow"></div>
+                        <div class="mockup-dot green"></div>
+                        <span class="mockup-title">Available Courses</span>
+                    </div>
+                    <div class="mockup-body">
+                        <div class="course-card">
+                            <div class="course-icon">📚</div>
+                            <div class="course-info">
+                                <div class="course-name">Fundisa AI: Teacher Certification</div>
+                                <div class="course-meta">CAPS-aligned lesson generation • 2 days</div>
+                            </div>
+                            <span class="course-badge badge-cpd">15 CPD Points</span>
+                        </div>
+                        <div class="course-card">
+                            <div class="course-icon">🎯</div>
+                            <div class="course-info">
+                                <div class="course-name">MatricMate AI: Learner Success</div>
+                                <div class="course-meta">Exam prep & study strategies • Self-paced</div>
+                            </div>
+                            <span class="course-badge badge-new">New</span>
+                        </div>
+                        <div class="course-card">
+                            <div class="course-icon">🎓</div>
+                            <div class="course-info">
+                                <div class="course-name">SuperviseAI: Lecturer Mastery</div>
+                                <div class="course-meta">Postgrad supervision efficiency • 3 days</div>
+                            </div>
+                            <span class="course-badge badge-cpd">20 CPD Points</span>
+                        </div>
+                        <div class="course-card">
+                            <div class="course-icon">✨</div>
+                            <div class="course-info">
+                                <div class="course-name">Frictionless Learner: Peer Tutoring</div>
+                                <div class="course-meta">Predict+Connect workflow • 1 day</div>
+                            </div>
+                            <span class="course-badge badge-cpd">10 CPD Points</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ecosystem Section -->
+    <section class="ecosystem" id="ecosystem">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Our Platforms</span>
+                <h2>Train on the Tools That Transform SA Education</h2>
+                <p>Four integrated platforms. One academy. End-to-end AI literacy for South African educators and learners.</p>
+            </div>
+            <div class="platform-grid">
+                <div class="platform-card fade-in" onclick="window.open('https://reggie9102.github.io/Fundisa.Ai/', '_blank')">
+                    <div class="platform-icon">📚</div>
+                    <h3>Fundisa AI</h3>
+                    <p>For Foundation Phase teachers. Generate CAPS-aligned lessons, reduce admin by 70%.</p>
+                    <span class="platform-link">Visit Platform →</span>
+                </div>
+                <div class="platform-card fade-in" onclick="window.open('https://reggie9102.github.io/MatricMate.AI/', '_blank')">
+                    <div class="platform-icon">🎯</div>
+                    <h3>MatricMate AI</h3>
+                    <p>For Grade 12 learners. CAPS-aligned study support, exam prep, multilingual help.</p>
+                    <span class="platform-link">Visit Platform →</span>
+                </div>
+                <div class="platform-card fade-in" onclick="window.open('https://reggie9102.github.io/PGSupervise.AI/', '_blank')">
+                    <div class="platform-icon">🎓</div>
+                    <h3>SuperviseAI</h3>
+                    <p>For university lecturers. AI-augmented supervision, literature discovery, SA journals.</p>
+                    <span class="platform-link">Visit Platform →</span>
+                </div>
+                <div class="platform-card fade-in" onclick="window.open('https://reggie9102.github.io/FrictionlessLearner/', '_blank')">
+                    <div class="platform-icon">✨</div>
+                    <h3>Frictionless Learner</h3>
+                    <p>For university students. Predict+Connect peer tutoring, calendar-aware, multilingual.</p>
+                    <span class="platform-link">Visit Platform →</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certification Pathways -->
+    <section class="pathways" id="pathways">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Certification Pathways</span>
+                <h2>ETDP SETA-Aligned Professional Development</h2>
+                <p>Flexible learning paths for teachers, lecturers, and education leaders.</p>
+            </div>
+            <div class="pathway-grid">
+                <div class="pathway-card fade-in">
+                    <h3>🎯 Educator Pathway</h3>
+                    <span class="duration">2-5 days • Blended (online + in-person)</span>
+                    <ul>
+                        <li>Fundisa AI: CAPS lesson generation</li>
+                        <li>AI ethics & POPIA compliance</li>
+                        <li>Multilingual content creation</li>
+                        <li>Classroom integration strategies</li>
+                        <li>Assessment & feedback design</li>
+                    </ul>
+                    <p style="font-size: 0.85rem; color: var(--gray);"><strong>Outcome:</strong> Certified AI-Enhanced Educator (15-25 CPD points)</p>
+                </div>
+                <div class="pathway-card fade-in">
+                    <h3>🎓 Academic Pathway</h3>
+                    <span class="duration">3-7 days • University-focused</span>
+                    <ul>
+                        <li>SuperviseAI: Postgrad supervision</li>
+                        <li>Frictionless Learner: Peer tutoring design</li>
+                        <li>Research ethics & AI integrity</li>
+                        <li>Cohort analytics for retention</li>
+                        <li>LMS integration (Moodle/Blackboard)</li>
+                    </ul>
+                    <p style="font-size: 0.85rem; color: var(--gray);"><strong>Outcome:</strong> Certified AI Academic Practitioner (20-30 CPD points)</p>
+                </div>
+                <div class="pathway-card fade-in">
+                    <h3>🚀 Leadership Pathway</h3>
+                    <span class="duration">1-3 days • Strategic focus</span>
+                    <ul>
+                        <li>AI strategy for schools/universities</li>
+                        <li>Change management & adoption</li>
+                        <li>POPIA compliance frameworks</li>
+                        <li>Budgeting & ROI for EdTech</li>
+                        <li>ETDP SETA accreditation process</li>
+                    </ul>
+                    <p style="font-size: 0.85rem; color: var(--gray);"><strong>Outcome:</strong> Certified AI Education Leader (10-15 CPD points)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ETDP SETA Accreditation -->
+    <section class="seta-section" id="seta">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Accreditation</span>
+                <h2>ETDP SETA-Aligned for CPD Points</h2>
+                <p>Our certifications count toward your professional development requirements.</p>
+            </div>
+            <div class="seta-grid">
+                <div>
+                    <div class="seta-badge">✅ ETDP SETA Accreditation in Progress</div>
+                    <h3 style="margin-bottom: 1.5rem; font-size: 1.3rem;">Why This Matters</h3>
+                    <ul class="seta-list">
+                        <li>CPD points count toward SACE registration renewal</li>
+                        <li>Universities recognize accredited training for staff development</li>
+                        <li>Schools can claim mandatory training grants</li>
+                        <li>Enhances your professional portfolio & career progression</li>
+                        <li>Ensures quality standards & ethical AI practice</li>
+                    </ul>
+                    <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.9;">
+                        <strong>Current Status:</strong> Accreditation application submitted Q1 2026. 
+                        All courses delivered to SETA standards pending formal approval.
+                    </p>
+                </div>
+                <div class="seta-visual">
+                    <h4 style="margin-bottom: 1rem;">CPD Points Breakdown</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                        <div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(255,255,255,0.08); border-radius: 10px;">
+                            <span>Fundisa AI Certification</span>
+                            <span style="font-weight: 700; color: var(--gold);">15 points</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(255,255,255,0.08); border-radius: 10px;">
+                            <span>SuperviseAI Certification</span>
+                            <span style="font-weight: 700; color: var(--gold);">20 points</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(255,255,255,0.08); border-radius: 10px;">
+                            <span>Leadership Pathway</span>
+                            <span style="font-weight: 700; color: var(--gold);">10-15 points</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 0.75rem; background: rgba(255,255,255,0.08); border-radius: 10px;">
+                            <span>Full Educator Pathway</span>
+                            <span style="font-weight: 700; color: var(--gold);">25 points</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multilingual Training -->
+    <section class="multilingual" id="multilingual">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Inclusive Learning</span>
+                <h2>Training in Your Home Language</h2>
+                <p>All courses available in 11 official South African languages — because learning is better when you understand.</p>
+            </div>
+            <div class="lang-grid">
+                <div class="lang-card fade-in">
+                    <div class="lang-flag">🇬🇧</div>
+                    <h4>English</h4>
+                    <p>Primary instruction language</p>
+                </div>
+                <div class="lang-card fade-in">
+                    <div class="lang-flag">🇿🇦</div>
+                    <h4>isiZulu</h4>
+                    <p>KwaZulu-Natal, Gauteng</p>
+                </div>
+                <div class="lang-card fade-in">
+                    <div class="lang-flag">🇿🇦</div>
+                    <h4>isiXhosa</h4>
+                    <p>Eastern Cape, WC</p>
+                </div>
+                <div class="lang-card fade-in">
+                    <div class="lang-flag">🇿🇦</div>
+                    <h4>Afrikaans</h4>
+                    <p>WC, Free State</p>
+                </div>
+                <div class="lang-card fade-in">
+                    <div class="lang-flag">🇿🇦</div>
+                    <h4>Sesotho</h4>
+                    <p>Free State, Gauteng</p>
+                </div>
+                <div class="lang-card fade-in">
+                    <div class="lang-flag">🇿🇦</div>
+                    <h4>Setswana</h4>
+                    <p>North West, Gauteng</p>
+                </div>
+                <div class="lang-card fade-in">
+                    <div class="lang-flag">🇿🇦</div>
+                    <h4>siSwati</h4>
+                    <p>Mpumalanga</p>
+                </div>
+                <div class="lang-card fade-in">
+                    <div class="lang-flag">🇿🇦</div>
+                    <h4>Tshivenda</h4>
+                    <p>Limpopo</p>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 2rem; font-size: 0.9rem; color: var(--gray);">
+                Powered by <strong>InkubaLM</strong> (Lelapa AI) + <strong>Meta NLLB</strong> for accurate academic terminology. 
+                Glossaries preserve technical terms across languages.
+            </p>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Pricing</span>
+                <h2>Accessible Professional Development</h2>
+                <p>Individual, school, and institutional pricing options.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card fade-in">
+                    <div class="pricing-badge">Free</div>
+                    <div class="pricing-name">Intro Course</div>
+                    <div class="pricing-desc">For individuals exploring AI in education</div>
+                    <div class="pricing-price">R0<span>/course</span></div>
+                    <div class="pricing-period">Self-paced, online</div>
+                    <ul class="pricing-features">
+                        <li>AI fundamentals for educators</li>
+                        <li>Platform overview (all 4 tools)</li>
+                        <li>Basic certification of completion</li>
+                        <li>Community forum access</li>
+                    </ul>
+                    <button class="pricing-btn primary" onclick="enrolFree()">Enrol Free</button>
+                </div>
+                <div class="pricing-card featured fade-in">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-name">Professional Certification</div>
+                    <div class="pricing-desc">For teachers & lecturers seeking CPD points</div>
+                    <div class="pricing-price">R1,499<span>/pathway</span></div>
+                    <div class="pricing-period">Blended learning, 2-5 days</div>
+                    <ul class="pricing-features">
+                        <li>Full platform certification</li>
+                        <li>ETDP SETA-aligned curriculum</li>
+                        <li>15-25 CPD points upon completion</li>
+                        <li>Multilingual course materials</li>
+                        <li>1-year platform access included</li>
+                        <li>Certificate of completion</li>
+                    </ul>
+                    <button class="pricing-btn gold" onclick="contactAcademy()">Enrol Now</button>
+                </div>
+                <div class="pricing-card fade-in">
+                    <div class="pricing-badge">Institutional</div>
+                    <div class="pricing-name">School/University License</div>
+                    <div class="pricing-desc">For departments or entire institutions</div>
+                    <div class="pricing-price">Custom</div>
+                    <div class="pricing-period">Annual licensing</div>
+                    <ul class="pricing-features">
+                        <li>Unlimited staff enrolments</li>
+                        <li>Custom curriculum alignment</li>
+                        <li>Dedicated success manager</li>
+                        <li>CPD tracking & reporting</li>
+                        <li>On-site training options</li>
+                        <li>Co-development opportunities</li>
+                    </ul>
+                    <button class="pricing-btn primary" onclick="contactAcademy()">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Early Feedback</span>
+                <h2>What Pilot Participants Say</h2>
+                <p>From educators testing our certification pathways.</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">"The Fundisa AI certification transformed how I plan lessons. I save 5+ hours weekly and my learners are more engaged. The CPD points were a bonus!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">TM</div>
+                        <div>
+                            <div class="testimonial-name">Thandi M.</div>
+                            <div class="testimonial-role">Foundation Phase Teacher, Johannesburg</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">"SuperviseAI training helped me support my Honours students more effectively. The literature discovery feature alone saved me hours per student."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">PN</div>
+                        <div>
+                            <div class="testimonial-name">Prof. N.</div>
+                            <div class="testimonial-role">Associate Professor, Humanities</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">"As HoD, the Leadership Pathway gave me the framework to roll out AI tools across our faculty. The POPIA compliance module was invaluable."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">TK</div>
+                        <div>
+                            <div class="testimonial-name">Dr. K.</div>
+                            <div class="testimonial-role">Head of Department, Education</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contact">
+        <div class="cta-container fade-in">
+            <h2>Ready to Transform <span>Education with AI</span>?</h2>
+            <p>Join the free introductory course today. No cost. No commitment. Just powerful AI literacy for South African educators.</p>
+            <div class="cta-buttons">
+                <a href="mailto:academy@reggieexpress.co.za?subject=AI%20Academy%20Enrolment&body=Hi!%0D%0A%0D%0AI'm%20interested%20in%20enrolling%20in%20the%20Reggie%20Express%20AI%20Academy.%0D%0A%0D%0ARole%3A%20%5BTeacher%2FLecturer%2FStudent%2FOther%5D%0D%0AInstitution%3A%0D%0APlatform%20Interest%3A%20%5BFundisa%20AI%2FMatricMate%20AI%2FSuperviseAI%2FFrictionless%20Learner%5D%0D%0A%0D%0AThanks!" class="btn-primary">
+                    Enrol in Free Intro Course →
+                </a>
+                <a href="https://wa.me/27XXXXXXXXX?text=Hi!%20I'm%20interested%20in%20the%20Reggie%20Express%20AI%20Academy." class="btn-secondary">
+                    💬 WhatsApp Us
+                </a>
+            </div>
+            <p class="cta-note">🇿🇦 Proudly South African • ETDP SETA-Aligned • POPIA Compliant</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="nav-logo-icon">🎓</div>
+                        <span class="footer-logo-text">Reggie Express <span>AI Academy</span></span>
+                    </div>
+                    <p>South Africa's first AI education academy. Training teachers, lecturers, and students to harness AI for transformative learning — ethically, multilingually, and effectively.</p>
+                    <div class="footer-social">
+                        <a href="#" title="WhatsApp">💬</a>
+                        <a href="#" title="LinkedIn">in</a>
+                        <a href="#" title="Twitter">𝕏</a>
+                        <a href="#" title="YouTube">▶</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Academy</h4>
+                    <ul>
+                        <li><a href="#pathways">Certifications</a></li>
+                        <li><a href="#seta">ETDP SETA</a></li>
+                        <li><a href="#multilingual">Languages</a></li>
+                        <li><a href="#">Calendar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Platforms</h4>
+                    <ul>
+                        <li><a href="https://reggie9102.github.io/Fundisa.Ai/" target="_blank">Fundisa AI</a></li>
+                        <li><a href="https://reggie9102.github.io/MatricMate.AI/" target="_blank">MatricMate AI</a></li>
+                        <li><a href="https://reggie9102.github.io/PGSupervise.AI/" target="_blank">SuperviseAI</a></li>
+                        <li><a href="https://reggie9102.github.io/FrictionlessLearner/" target="_blank">Frictionless Learner</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Centre</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">POPIA Policy</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Reggie Express AI Academy (Reggie Express Pty Ltd). All rights reserved.</p>
+                <div>
+                    <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+        
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Button click handlers
+        function enrolFree() {
+            window.location.href = 'mailto:academy@reggieexpress.co.za?subject=Free%20Intro%20Course%20Enrolment&body=Hi!%0D%0A%0D%0AI%20would%20like%20to%20enrol%20in%20the%20FREE%20Introductory%20Course%20at%20Reggie%20Express%20AI%20Academy.%0D%0A%0D%0AMy%20Role%3A%0D%0AMy%20Institution%3A%0D%0A%0D%0AThanks!';
+        }
+        function contactAcademy() {
+            window.location.href = 'mailto:academy@reggieexpress.co.za?subject=AI%20Academy%20Enquiry&body=Hi!%0D%0A%0D%0AI%20would%20like%20to%20discuss%20enrolment%20in%20the%20Reggie%20Express%20AI%20Academy.%0D%0A%0D%0AMy%20Role%3A%0D%0AMy%20Institution%3A%0D%0APathway%20Interest%3A%0D%0A%0D%0AThanks!';
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+</html>
